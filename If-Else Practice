@@ -1,0 +1,10 @@
+# Name: Nathan 
+# Period: 6
+# If-Else Practice
+# Time Spent: 40 minutes
+number = int(input ('Enter a number:
+"))
+if number › 0:
+print("The number is positive.")
+else:
+print ("The number is not positive.")
