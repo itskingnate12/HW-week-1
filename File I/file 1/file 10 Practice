@@ -1,0 +1,48 @@
+# This program will:
+# 1. Make a file
+# 2. Put three lines of text in it
+# 3. Read the lines back
+# 4. Print them on the screen
+
+
+# -----------------------------
+# STEP 1: Write to the file
+# -----------------------------
+
+# Open a file named "example.txt"
+# "w" means we are writing to the file
+file = open("example.txt", "w")
+
+# Write three lines into the file
+file.write("Line one\n")
+file.write("Line two\n")
+file.write("Line three\n")
+
+# Always close the file when done
+file.close()
+
+
+# -----------------------------
+# STEP 2: Read from the file
+# -----------------------------
+
+# Open the same file again
+# "r" means we are reading the file
+file = open("example.txt", "r")
+
+# Read each line one by one
+line1 = file.readline()
+line2 = file.readline()
+line3 = file.readline()
+
+# Close the file again
+file.close()
+
+
+# -----------------------------
+# STEP 3: Print the lines
+# -----------------------------
+
+print(line1)
+print(line2)
+print(line3)
