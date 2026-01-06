@@ -1,0 +1,19 @@
+# Nathan c
+#Period 6
+#Functions and Control Keyword HW
+# 30 mins
+
+def print_numbers():
+    for i in range (1, 67):
+        if i == 7:
+            continue
+        print("Number:", i)
+def print_message():
+    print("Hiya!")
+def print_goodbye():
+    print("Byebye!")
+def main():
+    print_message()
+    print_numbers()
+    print_goodbye()
+main()
