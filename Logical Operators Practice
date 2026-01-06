@@ -1,0 +1,38 @@
+# --- Using 'not' ---
+# Check if the user did NOT choose "dog"
+pet = input("What’s your favorite pet? ")
+
+if not pet == "cat":
+    print("So your favorite pet isn’t a cat!")
+else:
+    print("cats are bad!")
+
+
+# --- Using 'or' ---
+# Check if a number is negative OR greater than 100
+number = int(input("Pick any number: "))
+
+if number < 0 or number > 100:
+    print("That number is out of the normal range!")
+else:
+    print("That number is within the normal range.")
+
+
+# --- Using 'and' ---
+# Check if both conditions are true: the user has money AND wants to buy something
+money = input("Do you have money? (yes/no): ")
+buy = input("Do you want to buy something? (yes/no): ")
+
+if money == "yes" and buy == "yes":
+    print("You can go shopping!")
+else:
+    print("You can’t go shopping right now.")
+
+
+# --- Using multiple logical operators ---
+# Check if the person likes dogs AND can shop OR picked the lucky number
+if (pet == "dog" and money == "yes" and buy == "yes") or number == 77:
+    print("You meet the special condition!")
+else:
+    print("You don’t meet the special condition.")
+
