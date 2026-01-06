@@ -1,0 +1,7 @@
+# Nathan
+# 6th
+# input practice homework
+# Time Spent: A 5 minutes
+first_name = input('Enter your username: ')
+full_name = first_name
+print('thats a cool username ' + full_name)
