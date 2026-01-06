@@ -1,0 +1,36 @@
+# Name: Nathan 
+# Period: 6
+# Estring maker
+# Time Spent: 40 minutes
+print ("Generator")
+iteml =input ('Enter the
+name of item an 1: ")
+costl =float(input (f"Enter the cost of {item1}:
+1"))
+item2 = input("Enter the name of item :
+cos2
+$"))
+= float(input (f"Enter the cost of {item2}:
+{item3}: $"))
+item4 = input('Enter the name of item 4: ")
+cost4 = float (input (f"Enter the cost of
+｛item4｝：$"））
+item5 = input ('Enter the name of item 5:
+")
+cost5 = float (input(f"Enter the cost of
+{item5}: $"))
+total = cost1
++ COs2 + cost3 + cost4 + cost5
+print("\nReceipt")
+print(f"{item1}:
+§{costl: 2f}")
+print (f"{item2}:
+${cos2:.2f}")
+print(f"{item3}: ${cost3:.2f}"
+print (f"{item4}: ${cost4:.2f}")
+print (f"{item5}: ${cost5: .2f}")
+print (f"Total: {{total:.2f}")
+if total > 100:
+print("You spent over 100 dollars.")
+else:
+print ('Thank you for shopping with us",
