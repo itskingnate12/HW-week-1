@@ -1,0 +1,9 @@
+# A list (iterable object) of items to process
+fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+
+# Iterate over each item in the 'fruits' list using a for loop
+for fruit in fruits:
+    # Print the name of the current fruit during each iteration
+    print("I like to eat a " + fruit)
+
+print("Finished listing all the fruits!")
