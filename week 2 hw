@@ -1,0 +1,4 @@
+#step counter Tracker 
+
+#ask how many entries 
+num_days=int(input(How many days do you want to enter steps for?"))
