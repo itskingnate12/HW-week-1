@@ -9,3 +9,13 @@ num_days=int(input(How many days do you want to enter steps for?"))
 with open ("steps.txt"."w") as file:
 for days in range (1, num_days + 1):
   steps = int(input (f:Enter steps for day {days}:"))
+
+
+#read file and calculate total 
+total_steps = 0
+
+with open("steps,txt","i") as file:
+  for like in file 
+    total_steps += int(line)
+
+print(total steps,", total_steps)
