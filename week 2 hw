@@ -1,4 +1,11 @@
-#step counter Tracker 
+# step counter Tracker 
 
-#ask how many entries 
+# ask how many entries 
 num_days=int(input(How many days do you want to enter steps for?"))
+
+
+# write steps to file 
+
+with open ("steps.txt"."w") as file:
+for days in range (1, num_days + 1):
+  steps = int(input (f:Enter steps for day {days}:"))
