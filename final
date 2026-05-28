@@ -9,3 +9,14 @@ class Player:
   def __init__(self, name):
       self.name = name
       self.hand = []
+  def draw_card(self, deck):
+    self.hand.append(random.choice(deck))
+  def score(self):
+    total = sum(11 if c == "A" else c for c in self.hand)
+    aces = self.hand.count("A")
+    while total > 21 and aces:
+      total -=10
+      aces -= 1
+    return total
+  class BlackjackGUI:
+    def __init__(self):
