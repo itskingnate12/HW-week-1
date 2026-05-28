@@ -60,21 +60,21 @@ class BlackjackGUI:
       self.info_text.set("you busted")
       self.stats["Losses"] += 1
       self.update_stats()
-  def dealer_turn(self)
+  def dealer_turn(self):
     while self.dealer.score() < 17:
       self.dealer.draw_card(self.deck)
   def stand(self):
     self.dealer_turn()
     p, d = self.player.score(), self.dealer.score()
     self.dealer_text.set(f"Dealer Hand: {self.dealer.hand} Score:{d}")
-    if d > 21 or > p > d:
+    if d > 21 or p > d:
       self.info_text.set("You Win")
       self.stats["wins"] += 1
     elif d > p:
       self.info_text.set("Dealer Wins")
       self.stats["Losses"] += 1
     else:
-        else.info_text.set("Tie Game")
+        self.info_text.set("Tie Game")
         self.stats["Ties"] += 1
     self.update_stats()
   def update_sats(stats):
