@@ -81,6 +81,9 @@ class BlackjackGUI:
     self.stats_text.set(f"Wins:{self.stats['Wins']} "
                         f"Losses:{self.stats["Losses"]}"
                         f"Ties:{self.stats["Ties"]}")
+  def show_used(self):
+    messagebox.showinfo("Used Cards", str(self.used_cards))
+BlackjackGUI()
 
   
 
