@@ -2,8 +2,8 @@
 #Period : 6
 #Final
 #time spent 
-import tkinter
-from tkinter import message box
+import tkinter as tk
+from tkinter import messagebox
 import random
 class Player:
   def __init__(self, name):
@@ -18,47 +18,47 @@ class Player:
       total -=10
       aces -= 1
     return total
-  class BlackjackGUI:
-    def __init__(self):
-      self.window = tk.Tk()
-      self.window.title("Blackjack")
-      self.window.geometry("450x450")
-      self.deck = [2,3,4,5,6,7,8,9,10,10,10,10,"A"]
-      self.stats{"Wins": 0, "Losses": 0, "Ties": 0}
-      self.used_cards = set()
-      self.colors = ("lightgreen", "lightblue", "lightyellow")
-      self.player = Player("User")
-      self.dealer = Player("Dealer")
-      tk.Label(self.window, text="Blackjack", font=(Arial, 20)).pack()
-      self.info_text = tk.StringVar(value="Press Start Game")
-      tk.Label(self.window, textvariable=self.info_text).pack(pady=10)
-      self.player_text = tk.StringVar()
-      tk.Label(self.window, textvariable=self.dealer_text).pack()
-      self.stats_text = tk.StringVar(value="Wins: 0 Losses: 0 Ties: 0")
-      tk.Label(self.window, textvariable=self.stats_text).pack(pady=10)
-      self.make_button("Start Game", self.start_game)
-      self.make_button("Hit", self.hit)
-      self.make_button("Stand", self.stand)
-      self.make_button("View ur used Cards", self.show_used)
-      self.window.mainloop()
-    def start_game(self):
-      self.window["bg"] = random.choice(self.colors)
-      self.player.hand, self.dealer.hand = [], []
-      for _ in range(2):
-        self.player.draw_card(self.deck)
-        self.dealer.draw_card(self.deck)
-      self.update_labels()
-    def update_labels(self):
-      self.player_text.set(f"Your Hand: {self.player.hand} Scoer:{self.player.score()}")
-      self.dealer_text.set(f"dealers first card:{self.dealer.hand[0]}")
-    def hit(self):
+class BlackjackGUI:
+  def __init__(self):
+    self.window = tk.Tk()
+    self.window.title("Blackjack")
+    self.window.geometry("450x450")
+    self.deck = [2,3,4,5,6,7,8,9,10,10,10,10,"A"]
+    self.stats = {"Wins": 0, "Losses": 0, "Ties": 0}
+    self.used_cards = set()
+    self.colors = ("lightgreen", "lightblue", "lightyellow")
+    self.player = Player("User")
+    self.dealer = Player("Dealer")
+    tk.Label(self.window, text="Blackjack", font=("Arial", 20)).pack()
+    self.info_text = tk.StringVar(value="Press Start Game")
+    tk.Label(self.window, textvariable=self.info_text).pack(pady=10)
+    self.player_text = tk.StringVar()
+    tk.Label(self.window, textvariable=self.dealer_text).pack()
+    self.stats_text = tk.StringVar(value="Wins: 0 Losses: 0 Ties: 0")
+    tk.Label(self.window, textvariable=self.stats_text).pack(pady=10)
+    self.make_button("Start Game", self.start_game)
+    self.make_button("Hit", self.hit)
+    self.make_button("Stand", self.stand)
+    self.make_button("View ur used Cards", self.show_used)
+    self.window.mainloop()
+  def start_game(self):
+    self.window["bg"] = random.choice(self.colors)
+    self.player.hand, self.dealer.hand = [], []
+    for _ in range(2):
       self.player.draw_card(self.deck)
-      self.used_cards.update(map(str, self.player.hand))
-      self.update_labels()
-      if self.player.score() > 21:
-        self.info_text.set("you busted")
-        self.stats["Losses"] += 1
-        self.update_stats()
-    def dealer_turn(self)
-      while self.dealer.score() < 17:
-        self.dealer.draw_card(self.deck)
+      self.dealer.draw_card(self.deck)
+    self.update_labels()
+  def update_labels(self):
+    self.player_text.set(f"Your Hand: {self.player.hand} Scoer:{self.player.score()}")
+    self.dealer_text.set(f"dealers first card:{self.dealer.hand[0]}")
+  def hit(self):
+    self.player.draw_card(self.deck)
+    self.used_cards.update(map(str, self.player.hand))
+    self.update_labels()
+    if self.player.score() > 21:
+      self.info_text.set("you busted")
+      self.stats["Losses"] += 1
+      self.update_stats()
+  def dealer_turn(self)
+    while self.dealer.score() < 17:
+      self.dealer.draw_card(self.deck)
