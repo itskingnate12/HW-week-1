@@ -1,3 +1,4 @@
+
 #Nathan
 #Period : 6
 #Final
@@ -12,14 +13,15 @@ class Player:
       self.hand = []
 
   def draw_card(self, deck):
-    card = random.choices(deck)
+    card = random.choice(deck)
     self.hand.append(card)
     return card
+
   def score(self):
     total = sum(11 if c == "A" else c for c in self.hand)
     aces = self.hand.count("A")
     while total > 21 and aces:
-      total -=10
+      total -= 10
       aces -= 1
     return total
 class BlackjackGUI:
@@ -38,9 +40,9 @@ class BlackjackGUI:
     self.info_text = tk.StringVar(value="Press Start Game")
     tk.Label(self.window, textvariable=self.info_text).pack(pady=10)
 
-    self.player_text = tk.StringVar()
-    self.dealer_text = tk.StringVar()
-    tk.Label(self.window, textvariable=self.dealer_text).pack()
+    self.player_text = tk.StringVar("")
+    self.dealer_text = tk.StringVar("")
+    tk.Label(self.window, textvariable=self.player_text).pack()
     tk.Label(self.window, textvariable=self.dealer_text).pack()
 
     self.stats_text = tk.StringVar(value="Wins: 0 Losses: 0 Ties: 0")
@@ -52,14 +54,17 @@ class BlackjackGUI:
     self.make_button("View ur used Cards", self.show_used)
 
     self.window.mainloop()
+
   def make_button(self, text, command):
     tk.Button(self.window, text=text, command=command).pack(pady=2)
+
   def start_game(self):
     self.window["bg"] = random.choice(self.colors)
     self.player.hand = []
     self.dealer.hand = []
     self.used_cards = []
     self.info_text.set("Game Started")
+
     for _ in range(2):
       self.player.draw_card(self.deck)
       self.dealer.draw_card(self.deck)
@@ -78,8 +83,10 @@ class BlackjackGUI:
     if not self.player.hand:
       self.info_text.set("Press Start Game First")
       return
+
     self.used_cards.append(self.player.draw_card(self.deck))
     self.update_labels()
+
     if self.player.score() > 21:
       self.info_text.set("you busted")
       self.stats["Losses"] += 1
@@ -88,6 +95,7 @@ class BlackjackGUI:
   def dealer_turn(self):
     while self.dealer.score() < 17:
       self.used_cards.append(self.dealer.draw_card(self.deck))
+
   def stand(self):
     if not self.player.hand:
       self.info_text.set("Press Start game to start")
@@ -107,6 +115,7 @@ class BlackjackGUI:
         self.info_text.set("Tie Game")
         self.stats["Ties"] += 1
     self.update_stats()
+
   def update_stats(self):
     self.stats_text.set(
 f"Wins:{self.stats['Wins']} "
