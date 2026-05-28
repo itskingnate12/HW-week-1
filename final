@@ -1,4 +1,11 @@
 #Nathan
-#
-#
-#
+#Period : 6
+#Final
+#time spent 
+import tkinter
+from tkinter import message box
+import random
+class Player:
+  def __init__(self, name):
+      self.name = name
+      self.hand = []
