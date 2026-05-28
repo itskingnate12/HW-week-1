@@ -47,3 +47,18 @@ class Player:
       for _ in range(2):
         self.player.draw_card(self.deck)
         self.dealer.draw_card(self.deck)
+      self.update_labels()
+    def update_labels(self):
+      self.player_text.set(f"Your Hand: {self.player.hand} Scoer:{self.player.score()}")
+      self.dealer_text.set(f"dealers first card:{self.dealer.hand[0]}")
+    def hit(self):
+      self.player.draw_card(self.deck)
+      self.used_cards.update(map(str, self.player.hand))
+      self.update_labels()
+      if self.player.score() > 21:
+        self.info_text.set("you busted")
+        self.stats["Losses"] += 1
+        self.update_stats()
+    def dealer_turn(self)
+      while self.dealer.score() < 17:
+        self.dealer.draw_card(self.deck)
