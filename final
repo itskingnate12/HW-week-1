@@ -33,6 +33,7 @@ class BlackjackGUI:
     self.info_text = tk.StringVar(value="Press Start Game")
     tk.Label(self.window, textvariable=self.info_text).pack(pady=10)
     self.player_text = tk.StringVar()
+    tk.Label(self.window, textvariable=self.dealer_text).pack
     self.dealer_text = tk.StringVar()
     tk.Label(self.window, textvariable=self.dealer_text).pack()
     self.stats_text = tk.StringVar(value="Wins: 0 Losses: 0 Ties: 0")
@@ -42,6 +43,8 @@ class BlackjackGUI:
     self.make_button("Stand", self.stand)
     self.make_button("View ur used Cards", self.show_used)
     self.window.mainloop()
+  def make_button(self,text,command):
+    tk.Button=(self.window, text=text, command=command).pack(pady=2)
   def start_game(self):
     self.window["bg"] = random.choice(self.colors)
     self.player.hand, self.dealer.hand = [], []
@@ -50,7 +53,7 @@ class BlackjackGUI:
       self.dealer.draw_card(self.deck)
     self.update_labels()
   def update_labels(self):
-    self.player_text.set(f"Your Hand: {self.player.hand} Scoer:{self.player.score()}")
+    self.player_text.set(f"Your Hand: {self.player.hand} Score:{self.player.score()}")
     self.dealer_text.set(f"dealers first card:{self.dealer.hand[0]}")
   def hit(self):
     self.player.draw_card(self.deck)
@@ -69,7 +72,7 @@ class BlackjackGUI:
     self.dealer_text.set(f"Dealer Hand: {self.dealer.hand} Score:{d}")
     if d > 21 or p > d:
       self.info_text.set("You Win")
-      self.stats["wins"] += 1
+      self.stats["Wins"] += 1
     elif d > p:
       self.info_text.set("Dealer Wins")
       self.stats["Losses"] += 1
@@ -77,10 +80,10 @@ class BlackjackGUI:
         self.info_text.set("Tie Game")
         self.stats["Ties"] += 1
     self.update_stats()
-  def update_sats(stats):
+  def update_stats(self):
     self.stats_text.set(f"Wins:{self.stats['Wins']} "
-                        f"Losses:{self.stats["Losses"]}"
-                        f"Ties:{self.stats["Ties"]}")
+                        f"Losses:{self.stats['Losses']}"
+                        f"Ties:{self.stats['Ties']}")
   def show_used(self):
     messagebox.showinfo("Used Cards", str(self.used_cards))
 BlackjackGUI()
