@@ -33,6 +33,7 @@ class BlackjackGUI:
     self.info_text = tk.StringVar(value="Press Start Game")
     tk.Label(self.window, textvariable=self.info_text).pack(pady=10)
     self.player_text = tk.StringVar()
+    self.dealer_text = tk.StringVar()
     tk.Label(self.window, textvariable=self.dealer_text).pack()
     self.stats_text = tk.StringVar(value="Wins: 0 Losses: 0 Ties: 0")
     tk.Label(self.window, textvariable=self.stats_text).pack(pady=10)
